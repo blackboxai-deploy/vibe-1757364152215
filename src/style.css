@@ -1,0 +1,337 @@
+
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: #754FFE;
+  --first-color-alt: #8C6BFE;
+  --title-color: #ffffff;
+  --title-color-black: #1f1f1f;
+  --text-color: #d1d1d1;
+  --body-color: #171717;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h1-font-size: 1.75rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.5rem;
+    --normal-font-size: 1.25rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,h2 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+h1{
+  color: var(--title-color)
+}
+
+h2{
+  color: var(--first-color);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: var(--h1-font-size);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: var(--z-fixed);
+  transition: all .4s;
+}
+.header.active{
+  background-color: var(--body-color);
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+.nav__toggle, 
+.nav__close {
+  display: flex;
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1023px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--body-color);
+    width: 80%;
+    height: 100%;
+    box-shadow: -2px 0 12px hsla(0, 0%, 0%, .2);
+    padding: 6rem 4rem 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    transition: right .4s;
+    -webkit-transition: right .4s;
+    -moz-transition: right .4s;
+    -ms-transition: right .4s;
+    -o-transition: right .4s;
+}
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.nav__link {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  transition: color .4s;
+}
+
+.nav__link:hover {
+  color: var(--first-color);
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+/* Show menu */
+.show-menu {
+  right: 0;
+}
+
+.hero{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content h1{
+  font-size: 4rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-links a{
+  color: var(--text-color);
+  font-size: 1.5rem;
+  transition: .3s;
+}
+.social-links a:hover{
+  color: var(--first-color);
+}
+
+.btn{
+  background: var(--first-color);
+  padding: .7rem 2rem;
+  color: white;
+  border-radius: .5rem;
+  display: inline-block;
+  margin-top: 2rem;
+  transition: all .3s;
+  border: 2px solid transparent;
+}
+.btn:hover{
+  background-color: transparent;
+  border: 2px solid var(--first-color);
+}
+
+section{
+  padding-block: 5rem;
+}
+
+.guarantee-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.guarantee-box {
+  border: 1px solid var(--first-color);
+  padding: 1.5rem;
+  border-radius: .5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all .3s;
+}
+.guarantee-box:hover{
+  background-color: var(--first-color);
+}
+
+.guarantee-box .bx{
+  color: var(--first-color);
+  font-size: 1.5rem;
+}
+.guarantee-box:hover .bx{
+  color: white;
+}
+
+.guarantee-box:hover h3{
+  color: white;
+}
+.guarantee-box h3{
+  font-size: var(--normal-font-size);
+  margin-bottom: .2rem;
+  transition: all .3s;
+}
+.guarantee-box:hover p{
+  color: var(--text-color);
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+.about-img img{
+  border-radius: .5rem;
+}
+.about-content{
+  text-align: center;
+}
+.about-content p{
+  margin-bottom: 2rem;
+}
+
+.skills-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.skill{
+  background-color: var(--first-color-alt);
+  color: white;
+  padding: .7rem 1.5rem;
+  border-radius: .5rem;
+}
+
+.footer {
+  background-color: var(--first-color-alt);
+  padding-block: 3rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.footer h1 {
+  color: var(--title-color-black);
+  font-size: 1.5rem;
+}
+
+.footer p{
+  font-size: var(--normal-font-size);
+  margin-block: 1rem;
+  color: #1f1f1f;
+}
+
+.footer .social-links a{
+  color: var(--title-color-black);
+  transition: .3s;
+}
+.footer .social-links a:hover{
+  opacity: .5;
+}
+
+@media screen and (min-width: 1023px) {
+  .nav__toggle, 
+  .nav__close {
+    display: none;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 2.5rem;
+  }
+  .container{
+    margin: auto;
+  }
+
+  .hero-content h1{
+    font-size: 6rem;
+  }
+}
